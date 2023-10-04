@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic TODO List</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(228, 228, 228);
+    }
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 500px;
+      margin: auto;
+      padding: 2%;
+    }
+    #txt {
+      padding: 12px;
+      width: 96%;
+      font-size: 1.1rem;
+      text-align: center;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 1px 2px 20px 0.01px rgb(188, 187, 187);
+    }
+    #sub {
+      background-color: blue;
+      padding: 11px;
+      width: 100%;
+      color: white;
+      margin-top: 10px;
+      border: none;
+      border-radius: 20px;
+    }
+    #sub:hover {
+      background-color: rgb(54, 54, 243);
+      cursor: pointer;
+    }
+    li {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.8rem;
+      list-style-type: none;
+    }
+    li:hover {
+      cursor: not-allowed;
+    }
+
+    /* Mobile Responsive */
+
+    @media only screen and (max-width: 1000px) {
+      .container {
+        width: 100%;
+      }
+      #txt {
+        padding: 10px;
+        width: 80%;
+        text-align: center;
+      }
+      #sub {
+        background-color: blue;
+        padding: 9px;
+        width: 85%;
+        color: white;
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+  <body>
+    <h1>TODO LIST</h1>
+    <div class="container">
+      <input
+        type="text"
+        name="textHere"
+        id="txt"
+        placeholder="Enter your text here . .."
+      />
+      <input type="submit" value="Add" id="sub" />
+      <ul id="myUL">
+        <li id="delete"></li>
+      </ul>
+    </div>
+
+    <script>
+      let btn = document.getElementById("sub");
+      let text = document.getElementById("txt");
+      btn.addEventListener("click", function () {
+        let list = document.createElement("li");
+        var iNputext = document.getElementById("txt").value;
+        var addNode = document.createTextNode(iNputext);
+        list.appendChild(addNode); // Fix the typo here
+
+        if (iNputext === "") {
+          // Check the input value, not the text element
+          alert("Please enter something! ⚠️");
+        } else {
+          document.getElementById("myUL").appendChild(list);
+        }
+
+        //Create delete button
+        let deleteButton = document.getElementById("delete");
+        list.addEventListener("click", function () {
+          list.remove();
+          alert("Done✅");
+        });
+      });
+
+      /*
+      let btn = document.getElementById("sub");
+      var click = 0;
+      btn.addEventListener("click", function () {
+        if (click == 0) {
+          var list = document.createElement("li");
+          var inputValue = document.getElementById("txt");
+          var add = document.createTextNode(inputValue);
+          list.appendChild(add);
+          if (inputValue == "") {
+            alert("Please text some thing!");
+          } else {
+            var AddText = document.getElementsByTagName("ul");
+            AddText.appendChild(list);
+          }
+        }
+        click = 1;
+      });*/
+    </script>
+  </body>
+</html>
