@@ -1,3 +1,3 @@
 # basicTODO
 Basic TODO List using JavaScript.
-Live Link: https://mytodo-git-main-aygcoo.vercel.app/
+Live Link: https://basic-todo-gilt.vercel.app/
